@@ -220,7 +220,7 @@ A _transformation_ describes the spatial relationship between different coordina
 
 ![Transformation between reference frames](images/transformation_w_r.png)
 
-##### Figure 2. The transformation that describes the the translation and rotation between the reference frames _w_ and _r_. _Source: [Rotation representation](https://dgbshien.com/assets/blogs/rotation-representation.pdf)_
+##### Figure 2. The transformation that describes the translation and rotation between the reference frames _w_ and _r_. _Source: [Rotation representation](https://dgbshien.com/assets/blogs/rotation-representation.pdf)_
 
 In mobile robotics, the poses of all sensors need to be defined with respect to the robot frame (by **_pose_** we mean **position _and_ orientation**). By its turn, the pose of the robot needs to be referred to a reference frame (also called coordinate frame) that is usually fixed in the world. There are many possibilities to define reference frames. In ROS, a common representation is shown in Figure 3, where:
 
@@ -268,7 +268,7 @@ ros2 run turtlesim turtle_teleop_key
 
 Now you can control turtle1 using the keyboard keys. Move it around and see how the turtle2 runs after it.
 
-How is this implemented?
+**How is this implemented?**
 
 In this example, the tf2 library is being used to create three coordinate frames: a `world` frame, a `turtle1` frame, and a `turtle2` frame. A tf2 broadcaster is used to publish the turtle coordinate frames, while a tf2 listener is used to calculate the difference between the turtle frames. Turtle2 is moved to minimize that difference.
 
