@@ -299,7 +299,7 @@ class talker(Node):
 
 The `__init__` function is the constructor method of our `talker` class. This is the method that is called everytime we create an instance of our class (an object).
 
-Inside our constructor function, we usually create publishers and subscribers to the topics we want, define variables we will use, and place any other code that needs to be executed once when the talker object is created.
+Inside our constructor function, we usually create publishers and subscribers to the topics we want, define variables we will use, and place any other code that needs to be executed once when the talker object is created. An important method is the `super()__init__("talkerNode")`, which calls the `__init__` method of the superclass (Node) to inicialize the node called talkerNode.
 
 ```python
 class talker(Node):
@@ -316,9 +316,15 @@ class talker(Node):
     self.timer = self.create_timer(timer_period, self.timer_callback)
 ```
 
+In the constructor method we are also creating two special objects using ROS 2 rclpy methods: the publisher and the timer objects. 
+
+The publisher object is created with the function `create_publisher(String, "myTopic", 10)`, which means a publisher with a _String_ message type publishing to the _myTopic_ topic with a buffer size of up to 10 messages (up to 10 messages are stored if they cannot be sent immediately).
+
+Finally, the `create_timer(timer_period, self.timer_callback)` creates a timer object with a periodic trigger that calls the `timer_callback` function every `timer_period` seconds. It is commonly used to publish messages (as in our code) or run control loops at a fixed frequency.
+
 ##### Other methods
 
-After defining the `__init__` method, we should define other methods for the class. In most cases, this usually means defining _callback_ functions, which are functions that are called automatically when a certain pre-defined event happens. In our case, we define a _timer callback_ that is called everytime the timer's period elapses. Notice that the _timer object_ was created in the constructor method using the `create_timer` function. The method below is what is going to be called every `timer_period` seconds.
+After defining the `__init__` method, we should define other methods for the class. In most cases, this usually means defining _callback_ functions, which are functions that are called automatically when a certain pre-defined event happens. In our case, we define a `timer_callback` that is called every `timer_period` seconds. Recall that the _timer_ object was created in the constructor method using the `create_timer` function. The method below is what is going to be called every `timer_period` seconds.
 
 ```python
   # Timer callback method
@@ -380,8 +386,8 @@ We will now create the code for the subscriber node. Go to your `create3_pkg` di
 import rclpy
 from rclpy.node import Node
 
+# 1. Import the String message from the std_msgs package
 #! Write your code here!
-# Import the String message from the std_msgs package
 
 class listener(Node):
   def __init__(self):
@@ -390,38 +396,40 @@ class listener(Node):
 
   def sub_callback(self,msg):
     
+    # 2. Print the message to the terminal
     #! Write your code here! 
-    #Print the message to the terminal
         
 
 def main():
   rclpy.init()
 
+  # 3. Create an instance of your class
   #! Write your code here! 
-  # Create an instance of your class
-  # Spin the node
+
+  # 4. Spin the node
+  #! Write your code here! 
 
 if __name__ == '__main__':
   main()
 ```
 
-Fill out the sections marked with a `#! Write Your Code Here!` and save the file.
+Fill out the sections marked with a `#! Write Your Code Here!` and save the file. You only need 4 lines of code, as indicated above. The subscriber does not need to use a timer because is callback function `sub_callback` will be called automatically every time a new message is published to the corresponding topic.
 
-> This is a good exercise to solidify your knowledge, so try figuring out the answers by inspecting previous code that we created. If you need help, check the solution below. 
+> This is a good exercise to solidify your knowledge, so try figuring out the answers by inspecting previous code that we created. If you need help, check the solution below.
 
 <details>
 <summary>Solution</summary>
 
-<code># Import the String message from the std_msgs package:</code><br>
+<code># 1. Import the String message from the std_msgs package:</code><br>
 <code>from std_msgs.msg import String</code><br>
 <br>
-<code># Print the message to the terminal</code><br>
+<code># 2. Print the message to the terminal</code><br>
 <code>self.get_logger().info(f"Received message: {msg.data}")</code><br>
 <br>
-<code># Create an instance of your class</code><br>
+<code># 3. Create an instance of your class</code><br>
 <code>listener_node = listener()</code><br>
 <br>
-<code># Spin the node</code><br>
+<code># 4. Spin the node</code><br>
 <code>rclpy.spin(listener_node)</code><br>
 
 </details>
