@@ -147,7 +147,7 @@ It is good practice to define the name of the file that contains your bag. You c
 ros2 bag record -o <file_name> <topic_name>
 ```
 
-To record the `/turtle1/cmd_vel` topic in the file `turtle_movement`, open a new terminal window and run:
+To record the `/turtle1/cmd_vel` topic in a bag called `turtle_movement`, open a new terminal window and run:
 
 ```bash
 cd ~/rosbag_dir
@@ -167,6 +167,11 @@ You will see messages similar to those:
 Now, switch to your teleop terminal and move the turtle in a pattern that you can recognize later. When you are done, click on the ROS Bag terminal and press `CTRL+C` to end the recording.
 
 #### Step 3 - Inspect the rosbag
+
+The command above creates a bag directory called `turtle_movement`. Inside it, you will typically find two files:
+
+- `metadata.yaml`: contains useful information about the bag, like start/end timestamps, number of messages recorded, topic names and types etc..
+- `.db3`: an SQLite database file that stores the actual recorded messages. In our case, it saves every geometry_msgs/msg/Twist message received on /turtle1/cmd_vel, together with its timestamp and topic information.
 
 You can find out information about the exact data stored inside the rosbag by using the command `ros2 bag info <bag_name>`. To inspect the rosbag we just recorded, run:
 
