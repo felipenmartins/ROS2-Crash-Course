@@ -345,7 +345,7 @@ In this activity we will see how we can use RViz to visualize transforms.
 
 #### Step 1 - Run the TurtleSim tf2 Demo
 
-We are going to run the same demo we used in the first activty of this chapter. Open a new terminal and run the command below to open TurtleSim:
+We are going to run the same demo we used in the previous activty. Open a new terminal and run the command below to open TurtleSim:
 
 ```bash
 ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
