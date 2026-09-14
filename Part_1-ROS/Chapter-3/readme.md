@@ -288,7 +288,7 @@ Wait a few seconds until the process is completed. Then, open the Ubuntu _Docume
 
 #### Step 4: Understand the representation of the frames
 
-The command above gives you a visual representation of the TF tree, but does not show you the actual pose of each frame with respect to each other. To get such information, you can run the command `ros2 run tf2_ros tf2_echo frame1 frame2`. This will print information about translation (coordinates of the origin of `frame2`) and rotation (the orientation of `frame2`), both with respect to `frame1`.
+The command above gives you a visual representation of the TF tree, but does not show you the actual pose of each frame with respect to each other. To get such information, you can run the command `ros2 run tf2_ros tf2_echo <frame_ref> <frame_robot>`. This will print information about translation (coordinates of the origin) and rotation of `<frame_robot>` with respect to `<frame_ref>`.
 
 Run the command below to get the pose of `turtle1` with respect to the `world`:
 
@@ -323,7 +323,7 @@ ROS 2 adopts fixed frame RPY, which means that three individual rotations are ap
 
 > _Note_: There are many ways to represent orientation, like rotation matrix, quaternion, or axis-angle. For a mathematical description, we refer you again to [Rotation representation](https://dgbshien.com/assets/blogs/rotation-representation.pdf), by Bang-Shien Chen.
 
-Now, investigate the pose of Turtle2 with respect of Turtle1:
+In the command `ros2 run tf2_ros tf2_echo <frame_ref> <frame_robot>`, both frames can be fixed or mobile. So, both could also be coordinate frames of two different robots, where one robot would be used as reference for the position of the other. Let us use this to investigate the pose of Turtle2 with respect of Turtle1:
 
 ```bash
 ros2 run tf2_ros tf2_echo turtle1 turtle2
