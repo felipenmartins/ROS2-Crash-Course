@@ -38,9 +38,9 @@ If you already have a virtual machine OVA file, you can follow the instructions 
 1. Open VMware and click **File** → **Open** → select the `.ova` file.
 2. Follow the import wizard (accept defaults).
 3. Before starting the VM: go to **Settings** and configure it with the following parameters:
-    * RAM: 4 GB minimum, 8 GB recommended
+    * RAM: 4 GB minimum, 8 GB recommended (maximum half of your computer's RAM)
     * CPUs: 2-4 cores
-    * Network: Bridged Adapter (not NAT)
+    * Network: NAT (Bridged Adapter should also work, but many of my students had issues with it)
     * USB: Enable USB 3.0 controller → Network Adapter → set to Bridged
 4. Start the VM and log in (the VM provided by Hanze has username `ros2`, password `ros2`).
 
