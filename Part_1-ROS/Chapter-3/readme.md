@@ -603,6 +603,7 @@ After completing Part 1, you should have a good understanding of the main fundam
 
 ## Navigation menu
 
+- Go to the list of common ROS 2 commands [ROS 2 CLI Cheat Sheet](../../Part_1-ROS/Chapter-1/ros2_commands.md)
 - Go back to [Chapter 2](../../Part_1-ROS/Chapter-2/readme.md)
 - Continue to [Chapter 4](../../Part_2-Create3/Chapter-4/readme.md)
 - Go to the [Main page](../../readme.md)

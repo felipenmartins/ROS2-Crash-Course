@@ -355,5 +355,6 @@ In this course you went from learning ROS 2 fundamentals to implementing Python 
 
 ## Navigation menu
 
+- Go to the list of common ROS 2 commands [ROS 2 CLI Cheat Sheet](../../Part_1-ROS/Chapter-1/ros2_commands.md)
 - Go back to [Chapter 5](../../Part_2-Create3/Chapter-5/readme.md)
 - Go to the [Main page](../../readme.md)

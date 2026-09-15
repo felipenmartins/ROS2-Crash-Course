@@ -808,6 +808,7 @@ In the next chapter you will learn more about other tools that are part of the R
 
 ## Navigation menu
 
+- Go to the list of common ROS 2 commands [ROS 2 CLI Cheat Sheet](../../Part_1-ROS/Chapter-1/ros2_commands.md)
 - Go back to [Chapter 1](../../Part_1-ROS/Chapter-1/readme.md)
 - Continue to [Chapter 3](../../Part_1-ROS/Chapter-3/readme.md)
 - Go to the [Main page](../../readme.md)
