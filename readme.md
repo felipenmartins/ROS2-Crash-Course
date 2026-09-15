@@ -20,13 +20,13 @@ The course structure is:
 
 This part covers fundamental ROS 2 concepts. It can be followed even if you don't have access to a physical robot.
 
-- [**Chapter 1 - ROS 2 Foundations and Core Concepts**](/Part_1-ROS/Chapter-1/readme.md)
+- [**Chapter 1 - ROS 2 Introduction: Foundations and Core Concepts**](/Part_1-ROS/Chapter-1/readme.md)
   - ROS overview and history
   - Why use ROS?
   - Main concepts (packages, workspaces, nodes, topics etc.)
     - _Activity: Creating your own workspace and running your first nodes_
 
-- [**Chapter 2 - Building ROS 2 Applications**](/Part_1-ROS/Chapter-2/readme.md)
+- [**Chapter 2 - ROS 2 Building Blocks: Nodes, Topics, Services, and Actions**](/Part_1-ROS/Chapter-2/readme.md)
   - TurtleSim
   - Nodes
     - _Activity: Running and inspecting nodes_
@@ -36,7 +36,7 @@ This part covers fundamental ROS 2 concepts. It can be followed even if you don'
   - Actions and Services
     - _Activity: Getting familiar with actions and services_
 
-- [**Chapter 3 - Integrating, Visualizing, and Simulating Robots in ROS 2**](/Part_1-ROS/Chapter-3/readme.md)
+- [**Chapter 3 - ROS 2 Tools: Launch Files, Bags, Visualization, and Simulation**](/Part_1-ROS/Chapter-3/readme.md)
   - Launch files
     - _Activity: Creating a Launch File_
   - ROS Bags
