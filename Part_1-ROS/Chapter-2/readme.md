@@ -1,4 +1,4 @@
-# Chapter 2 - Building ROS 2 Applications
+# Chapter 2 - ROS 2 Building Blocks: Nodes, Topics, Services, and Actions
 
 This chapter dives into two essential communication paradigms in ROS (Node-Topic, Services and Actions), and shows how to create Python code to implement ROS 2 nodes that communicate with each other.
 
@@ -804,7 +804,7 @@ In this chapter you studied and practiced core ROS 2 concepts, such as nodes, to
 
 For a quick reference, check out this list of [commonly used ROS 2 commands](../../Part_1-ROS/Chapter-1/ros2_commands.md).
 
-In the next chapter you will learn more about other tools that are part of the ROS 2 ecosystem. We will cover how to download and add ROS packages to our projects, and discuss a few of the most prominent ones.
+In the next chapter you will learn more about other tools that are part of the ROS 2 ecosystem. We will also cover how to download and add ROS packages to our projects, and discuss a few of the most prominent ones.
 
 ## Navigation menu
 
