@@ -1,4 +1,4 @@
-# Chapter 1 - ROS 2 Foundations and Core Concepts
+# Chapter 1 - ROS 2 Introduction: Foundations and Core Concepts
 
 This chapter introduces ROS and its core concepts, and gives an insight into why it is important to learn it. It also guides you to create your first workspace, first package, and run a couple of nodes to test your installation.
 
@@ -417,7 +417,7 @@ You might have observed that the subscriber receives only the messages that are 
 
 ## Conclusion
 
-After completing this chapter, you should have a general understanding of the fundamental concepts of ROS and its importance for the robotics community. You should also have a workspace prepared for the next activities of this course. In Chapter 2 we will dive into some core topics to better understand how to work with ROS 2 and how to write Python code for it.
+After completing this chapter, you should have a general understanding of the fundamental concepts of ROS and its importance for the robotics community. You should also have a workspace prepared for the next activities of this course. In Chapter 2 we will dive into some core topics to better understand core building blocks of ROS 2 (nodes, topics, services, and actions), and how to write Python code for it.
 
 ## Navigation menu
 
