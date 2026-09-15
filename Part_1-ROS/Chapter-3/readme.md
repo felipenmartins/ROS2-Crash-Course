@@ -1,6 +1,6 @@
-# Chapter 3 - Integrating, Visualizing, and Simulating Robots in ROS 2
+# Chapter 3 - ROS 2 Tools: Launch Files, Bags, Visualization, and Simulation
 
-This chapter covers a few important concepts that will help you harness the power of ROS 2. You will learn how to create launch files, use ROS Bags, understand the role of transforms (TFs), visualize TFs using RViz, learn about Gazebo, and add packages to your existing workspace to run a Create3 simulation.
+This chapter covers a few important tools that will help you harness the power of ROS 2. You will learn how to create launch files, use ROS Bags, understand the role of transforms (TFs), visualize TFs using RViz, learn about Gazebo, and add packages to your existing workspace to run a Create3 simulation.
 
 ## Objectives
 
