@@ -414,11 +414,13 @@ In the next activity we will practice how to add packages to our existing worksp
 
 ### 3.6.1 Activity: Adding Create3 packages to run a simulation
 
-This activity will focus on adding new packages to your workspace that will allow you to simulate the Create3 robot and visualize its data. We will need to clone some dependencies from Github and build the workspace again.
+This activity will focus on adding new packages to your workspace that will allow you to simulate the Create3 robot and visualize its data.
+
+> **_Note:_** If you are running ROS on a virtual machine, it is very possible that Gazebo will **not** run properly, or not run at all. Performance inside a VM may be poor due to flickering, low frame rate, slow simulation, camera rendering issues etc.. Unfortunately, there’s not much to do to fix this because Gazebo is quite demanding. Prefer to execute this activity on a machine with native Ubuntu and ROS to run Gazebo.
 
 #### Step 1 - Clone packages
 
-We will clone a couple of packages from GitHub: the [Create3 simulation](https://github.com/iRobotEducation/create3_sim) and the [Create3 examples](https://github.com/iRobotEducation/create3_examples) packages. We will download them from their respective Github repositories.
+We will need to clone some dependencies from Github and build the workspace again. Let's start by cloning the following packages from GitHub: the [Create3 simulation](https://github.com/iRobotEducation/create3_sim) and the [Create3 examples](https://github.com/iRobotEducation/create3_examples) packages.
 
 First, navigate to the `src` directory in your workspace:
 
@@ -512,7 +514,11 @@ source install/local_setup.bash
 
 #### Step 6 - Run a simulation
 
-The packages we installed include files that allow simulating the Create3 in Gazebo and visualize it in RViz. Test your installation by running the `create3_gz` launch file (which loads RViz, Gazebo and related nodes):
+The packages we installed include files that allow simulating the Create3 in Gazebo and visualize it in RViz.
+
+> **_Note:_** This is the step that might not work on a virtual machine because Gazebo is quite demanding. If possible, use a machine with native Ubuntu 24.04 and ROS to run Gazebo.
+
+Test your installation by running the `create3_gz` launch file (which loads RViz, Gazebo and related nodes):
 
 ```bash
 ros2 launch irobot_create_gz_bringup create3_gz.launch.py
@@ -528,46 +534,44 @@ After waiting for a few minutes for Gazebo to fully launch, open a new terminal 
 
 ```bash
 /battery_state
-  /clicked_point
-  /clock
-  /cmd_audio
-  /cmd_lightring
-  /cmd_vel
-  /diffdrive_controller/cmd_vel_unstamped
-  /dock
-  /dynamic_joint_states
-  /goal_pose
-  /hazard_detection
-  /imu
-  /initialpose
-  /interface_buttons
-  /ir_intensity
-  /ir_opcode
-  /joint_states
-  /kidnap_status
-  /mouse
-  /odom
-  /parameter_events
-  /performance_metrics
-  /robot_description
-  /rosout
-  /sim_ground_truth_dock_pose
-  /sim_ground_truth_pose
-  /slip_status
-  /standard_dock_description
-  /stop_status
-  /tf
-  /tf_static
-  /wheel_status
-  /wheel_ticks
-  /wheel_vels
+/clicked_point
+/clock
+/cmd_audio
+/cmd_lightring
+/cmd_vel
+/diffdrive_controller/cmd_vel_unstamped
+/dock
+/dynamic_joint_states
+/goal_pose
+/hazard_detection
+/imu
+/initialpose
+/interface_buttons
+/ir_intensity
+/ir_opcode
+/joint_states
+/kidnap_status
+/mouse
+/odom
+/parameter_events
+/performance_metrics
+/robot_description
+/rosout
+/sim_ground_truth_dock_pose
+/sim_ground_truth_pose
+/slip_status
+/standard_dock_description
+/stop_status
+/tf
+/tf_static
+/wheel_status
+/wheel_ticks
+/wheel_vels
 ```
 
 The topics being published are almost the same as the ones published by the real Create3 robot, which facilitates testing our code in simulation.
 
-If you are running ROS on a virtual machine, it is very possible that Gazebo will not run properly. Performance inside a VM may still be poor due to flickering, low frame rate, slow simulation, camera rendering issues etc.. Unfortunately, there's not much to do to fix this because Gazebo is quite demanding. If possible, use a machine with native Ubuntu 24.04 and ROS to run Gazebo.
-
-Another possible issue is that Gazebo opens but the simulation does not start. If RViz and Gazebo open, but then Gazebo crashes and the simulation never starts, it might be because it starts paused (that's what happened in my case, for whatever reason). You can verify that by running:
+A possible issue is that Gazebo opens but the simulation does not start. If RViz and Gazebo open, but then Gazebo crashes and the simulation never starts, it might be because it starts paused (that's what happened in my case, for whatever reason). You can verify that by running:
 
 ```bash
 gz topic -e -t /world/depot/stats
