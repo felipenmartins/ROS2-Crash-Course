@@ -63,7 +63,7 @@ After importing and configuring the settings, start the VM to boot up Ubuntu. Yo
 
 ---
 
-The next steps need to be followed only if you want to create your own virtual machine (`.ova` file). If your VM is already running, you can go back to the [Main page](/readme.md).
+The next steps need to be followed only if you want to create your own virtual machine (`.ova` file). If your VM is already running, you can go back to the [Main page](../readme.md).
 
 ## 2. Download Ubuntu 24.04 ISO
 
