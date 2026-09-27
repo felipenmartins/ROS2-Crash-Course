@@ -29,26 +29,39 @@ You can install any virtualization software compatible with the OVA standard. Tw
 
 > **Hyper-V note:** If you use Docker Desktop, WSL2, or Windows Sandbox, VMware 26H1 is compatible with the Windows Hypervisor Platform. No need to disable Hyper-V.
 
-### 1.3 Import the VM (in case you have the .ova file)
+Now, follow the instructions from Section 2 onwards to create your virtual machine from scratch: you will download and install Ubuntu, ROS 2, and related software.
 
-If you already have a virtual machine OVA file, you can follow the instructions below to import and run it on your computer. If not, skip to Section 2.
+**If you already have a virtual machine .OVA file, click below and follow the instructions to import it.** In that case, you don't need to follow the instructions from Sections 2 and 3.
 
-> ⚠️ **Important!** OVA files are created for specific target hardware. This means that Apple Silicon mac (M series) users cannot import a VM built for x86 (Intel-compatible) processors, and vice-versa. If you do not have a file compatible with your hardware, you need to create your own virtual machine by following the instructions from Section 2 onwards.
+<details>
+<summary><B>Click here for instructions on how to import the VM</B></summary>
+<br>
+> ⚠️ <B>Important!</B> OVA files are created for specific target hardware. This means that Apple Silicon mac (M series) users cannot import a VM built for x86 (Intel-compatible) processors, and vice-versa. If you do not have a file compatible with your hardware, you need to create your own virtual machine by following the instructions from Section 2 onwards.
+<br>
+If you already have an `.ova` file for your hardware, follow the steps below to import it:<br>
+<br>
+If you are using <B>VMWare</B>:
+<br><br>
+1. Open VMware and click <B>File → Open</B> → select the `.ova` file.<br>
+2. Follow the import wizard (accept defaults).<br>
+3. Before starting the VM: go to <B>VM →  Settings</B> and configure it with the following parameters:<br><br>
+    * RAM: 4 GB minimum, 8 GB recommended (maximum half of your computer's RAM)<br>
+    * CPUs: 2-4 cores<br>
+    * Network: NAT (Bridged Adapter should also work, but many of my students had issues with it)<br>
+    * USB: Enable USB 3.x controller<br>
+<br>
+If you are using <B>VirtualBox</B>, the procedure is similar:
+<br><br>
+1. Open Virtual Box and click <B>File → Import Appliance</B> → select the `.ova` file.<br>
+2. Configure the VM with the same settings listed above.<br>
+<br>
+After importing and configuring the settings, start the VM to boot up Ubuntu. You can now login and start using ROS!
+<br><br>
+<I>Note:</I> The VM provided by Hanze has username `ros2`, password `ros2`.
 
-1. Open VMware and click **File** → **Open** → select the `.ova` file.
-2. Follow the import wizard (accept defaults).
-3. Before starting the VM: go to **Settings** and configure it with the following parameters:
-    * RAM: 4 GB minimum, 8 GB recommended (maximum half of your computer's RAM)
-    * CPUs: 2-4 cores
-    * Network: NAT (Bridged Adapter should also work, but many of my students had issues with it)
-    * USB: Enable USB 3.0 controller → Network Adapter → set to Bridged
-4. Start the VM and log in (the VM provided by Hanze has username `ros2`, password `ros2`).
+</details>
 
-If you are using **VirtualBox**, the procedure is similar:
-
-1. **File** → **Import Appliance** → select the `.ova` file.
-2. Configure the VM with the same settings listed above.
-3. Start and log in.
+---
 
 The next steps need to be followed only if you want to create your own virtual machine (`.ova` file). If your VM is already running, you can go back to the [Main page](/readme.md).
 
@@ -283,17 +296,27 @@ sudo snap install code --classic
 
 Once installed, open VSCode from the Applications menu and install these extensions (search in the Extensions panel, `Ctrl+Shift+X`):
 
-- **Robot Developer Extensions (RDE) for Visual Studio Code** (by Ranch Hand Robotics LLC) - will install ROS specific and related extensions to work with ROS (Python, C++, URDF etc.).
-- **CMake** (by twxs) - to get syntax highlighting for `CMakeLists.txt` files.
+* **Robotics Development Extensions for ROS 2** (by Ranch Hand Robotics LLC) - will install ROS 2 specific and related extensions (Python and C++). **The same company offers different extensions with similar names: Make sure to select the one for ROS 2**.
+* **ROS2 Topic Viewer** - to view and interact with ROS2 topics from VSCode.
 
-### 3.12 _Optional_: Install Webots and webots_ros2
+## 4. Conclusion
 
-Webots is an open-source robotics simulator. Considering mobile robotics, Webots has similar features [[1]](https://ieeexplore.ieee.org/document/9386154) and is more computationally efficient than Gazebo [[2]](https://arxiv.org/pdf/2008.04627).
+After completing the steps above, your virtual machine is ready for use. Now you can start following the [ROS 2 Crash Course](../Part_1-ROS/Chapter-1/readme.md)!
+
+You can also follow the optional sections below if you want to install Webots, connect to a real robot form your VM, or share it with others.
+
+---
+
+## Optional sections
+
+### _Optional 1_: Install Webots
+
+Webots is an open-source robotics simulator with similar features than Gazebo, but it is more computationally efficient, which is benefitial when running on a virtual machine. Webots is also more beginner friendly.
 
 If you are interested in installing Webots on your VM, follow the instructions available at:
 [https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html](https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html).
 
-### 3.13 _Optional_: Configure Networking for Robot Connectivity
+### _Optional 2_: Configure Networking for Robot Connectivity
 
 This section is relevant for connecting the VM to a physical robot - if that's not your case, you can skip it. 
 
@@ -321,26 +344,24 @@ ros2 multicast send
 
 You should see `Received from ...`. This confirms that DDS node discovery will work on the network.
 
-## 4. Export the VM for Distribution
+### _Optional_ 3: Export the VM for Distribution
 
-This is an optional step, in case you want to share this virtual machine.
+This is an optional step, in case you want to share this virtual machine. You can export your VM as an `.ova` file, which is a single portable archive that can be imported by VMware or Virtual Box - the importing machine needs to use the same processor architecture (x86, ARM, Apple Silicon).
 
-### 4.1 Clean up disk space
+Before sharing it, you can clean up disk space by running the following commands:
 
 ```bash
 sudo apt autoremove -y
 sudo apt clean
 ```
 
-### 4.2 Shut down the VM cleanly
+Then, shut down the VM cleanly
 
 ```bash
 sudo shutdown now
 ```
 
-### 4.3 Export the VM as an OVA file
-
-An `.ova` is a single portable archive that can be imported by VMware on any platform.
+Finally, export the VM as an OVA file.
 
 1. In VMware Workstation, make sure the VM is **powered off**.
 2. Go to **File → Export to OVF…**
@@ -349,14 +370,6 @@ An `.ova` is a single portable archive that can be imported by VMware on any pla
 5. Click **Save** and wait — this takes 5–15 minutes.
 
 You can **share the `.ova` file** via USB drive, Google Drive, or a file server.
-
----
-
-## References
-
-[1] J. Collins, S. Chand, A. Vanderkop and D. Howard, "A Review of Physics Simulators for Robotic Applications," in IEEE Access, vol. 9, pp. 51416-51431, 2021, doi: 10.1109/ACCESS.2021.3068769. – Available at: [https://ieeexplore.ieee.org/document/9386154](https://ieeexplore.ieee.org/document/9386154).
-
-[2] A. Ayala, F. Cruz, D. Campos, R. Rubio, B. Fernandes and R. Dazeley, "A Comparison of Humanoid Robot Simulators: A Quantitative Approach," 2020 Joint IEEE 10th International Conference on Development and Learning and Epigenetic Robotics (ICDL-EpiRob), Valparaiso, Chile, 2020, pp. 1-6, doi: 10.1109/ICDL-EpiRob48136.2020.9278116.  - Available at: [https://arxiv.org/pdf/2008.04627](https://arxiv.org/pdf/2008.04627)
 
 ---
 
