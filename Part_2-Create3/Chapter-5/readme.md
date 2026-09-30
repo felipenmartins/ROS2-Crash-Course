@@ -22,14 +22,16 @@ The firmware version of your robot must be **I.0.0.CycloneDDS**. If not, you mus
 
 Then, follow again the instructions of **Phase 2: Update Robot** [on this page](https://iroboteducation.github.io/create3_docs/setup/provision/) until step 6 to update the robot firmware. Enter the following in the application configuration screen:
 
-* ROS 2 Domain ID: 0
-* ROS 2 Namespace: `/robot_N` (replace _N_ by the number of your robot - do not forget the `/`!)
+* ROS 2 Domain ID: _N_ (replace _N_ by a number - default is 0)$^1$
+* ROS 2 Namespace: `/robot_N` (replace _N_ by the number of your robot - do not forget the `/`!)$^2$
 * RMW_IMPLEMENTATION: `rmw_cyclonedds_cpp`
 * Enable Fast DDS discovery server? _Leave it unchecked_
 
-> _Note:_ You can use any number for your robot, but make sure that each robot has a unique number. If you are at Hanze, you must use the robot number shown on the top faceplate of the robot and on its charging dock.
+> _Note 1:_ Typically, the ROS2 Domain ID is 0 (zero). However, if you are using many ROS2 robots in the same network, having a unique Domain ID per robot will cause ROS2 to see only the one that has a matching Domain ID. This might facilitate development, but "hides" the robots from each other.
 
-The above settings assume that you are using [ROS 2 Namespaces](https://github.com/iRobotEducation/create3_docs/blob/main/docs/setup/multi-robot.md#ros-2-namespaces) to have multiple Create3 robots connected to the same Wi-Fi network. For more information and to another option, check out [Using multiple Create® 3 robots](https://iroboteducation.github.io/create3_docs/setup/multi-robot/).
+> _Note 2:_ It is good practice to create a namespace for your robot to facilitate identification of topics and actions. Make sure the namespace is unique. If you are at Hanze, you must use `/robot_N`, where _N_ is the number of your robot shown on the top its faceplate.
+
+Check the following links for more details on [ROS 2 Namespaces](https://github.com/iRobotEducation/create3_docs/blob/main/docs/setup/multi-robot.md#ros-2-namespaces) and for [Using multiple Create® 3 robots](https://iroboteducation.github.io/create3_docs/setup/multi-robot/) on the same network.
 
 Proceed with the firmware update and restart the robot after it is completed.
 
