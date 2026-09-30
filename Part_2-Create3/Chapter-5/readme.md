@@ -22,8 +22,8 @@ The firmware version of your robot must be **I.0.0.CycloneDDS**. If not, you mus
 
 Then, follow again the instructions of **Phase 2: Update Robot** [on this page](https://iroboteducation.github.io/create3_docs/setup/provision/) until step 6 to update the robot firmware. Enter the following in the application configuration screen:
 
-* ROS 2 Domain ID: _N_ (replace _N_ by a number - default is 0)$^1$
-* ROS 2 Namespace: `/robot_N` (replace _N_ by the number of your robot - do not forget the `/`!)$^2$
+* ROS 2 Domain ID: _N_ (replace _N_ by a number - default is 0)<sup>1</sup>
+* ROS 2 Namespace: `/robot_N` (replace _N_ by the number of your robot - do not forget the `/`!)<sup>2</sup>
 * RMW_IMPLEMENTATION: `rmw_cyclonedds_cpp`
 * Enable Fast DDS discovery server? _Leave it unchecked_
 
